@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle " data-toggle="collapse">
+     </button>
+      <a class="navbar-brand" href="/vraspiapp">vRaspi <i class="fa fa-home"></i></a>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+<br>
+</br>
+{% block content %}
+<form class="form-signin" method="post"> {% csrf_token %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %}
+                <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    <input type="submit" value="Create new user account"/>
+</form>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block head_title %}vRaspi{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle " data-toggle="collapse">
+     </button>
+      <a class="navbar-brand" href="/vraspiapp"> vRaspi<i class="fa fa-home"></i></a>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+{% block content %}
+    <br></br>
+    <div class="usergreeting">
+    {% if form.errors %}
+        <p> <i class="fa fa-user-times"></i>Your username and password didn't match.</p>
+
+    {% endif %}
+    <div>
+    <br></br>
+    <form method="post" action="{% url 'django.contrib.auth.views.login' %} ">
+        {% csrf_token %}
+        <table>
+            <table class = "center">
+            <tr>
+                <td>{{ form.username.label_tag }}</td>
+                <td>{{ form.username }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.password.label_tag }}</td>
+                <td>{{ form.password }}</td>
+            </tr>
+        </table>
+        <br></br>
+
+       <input type="submit" value="login" />
+       <input type="hidden" name="next" value="/vraspiapp" />
+   </form>
+
+{% endblock %}

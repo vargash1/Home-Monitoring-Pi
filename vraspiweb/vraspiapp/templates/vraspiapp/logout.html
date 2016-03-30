@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block head_title %}vRaspi{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle " data-toggle="collapse">
+     </button>
+      <a class="navbar-brand" href="/vraspiapp"> vRaspi <i class="fa fa-home"></i></a>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+{% block content %}
+    <br></br>
+    <div class = "usergreeting">
+        <p><i class="fa fa-check-circle"></i> You have been successfully logged out</p>
+        <a href="/vraspiapp" ><p><i class="fa fa-home"></i></p></a>
+    </div>
+{% endblock %}

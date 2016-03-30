@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block head_title %}vRaspi{% endblock %}
+
+{% block greeting %}
+ <div class = "usergreeting">
+     {% if user.is_authenticated %}
+         <p>Welcome to Home Monitoring using RaspberryPi, {{ user.username }} !</p>
+     {% else %}
+         <p> Welcome to Home Monitoring using RaspberryPi, Plrease create an account </p>
+
+     {% endif %}
+ </div>
+ {% endblock %}
