@@ -19,6 +19,10 @@
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=PT+Sans' type='text/css'>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
+        <link href="http://code.jboxcdn.com/0.3.2/jBox.css" rel="stylesheet">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
 	{% block head_css %}{% endblock %}
@@ -32,7 +36,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top"  role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#topnavbar">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topnavbar">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -44,7 +48,7 @@
             <li class="active"></a></li>
             {% if user.is_authenticated %}
                 <li><a href="vraspiapp/logout"><i class="fa fa-sign-out"></i> Sign Out</a></li>
-                <li><a href="vraspiapp/studysheetgen"><i class="fa fa-binoculars"></i> Monitor</a></li>
+                <li><a href="vraspiapp/homemonitor"><i class="fa fa-binoculars"></i> Monitor</a></li>
             {% else %}
                 <li><a href="vraspiapp/login"><i class="fa fa-sign-in"></i> Sign In</a></li>
                 <li><a href="vraspiapp/signup"><i class="fa fa-user"></i> Create Account</a></li>

@@ -38,3 +38,6 @@ def signup(request):
 
 def signup_success(request):
 	return render(request, 'vraspiapp/signup_success.html')
+
+def homemonitor(request):
+    return render(request,"vraspiapp/homemonitor.html")

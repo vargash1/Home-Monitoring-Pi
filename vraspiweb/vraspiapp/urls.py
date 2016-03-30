@@ -15,7 +15,7 @@ urlpatterns = [
     {
         'template_name': 'vraspiapp/logout.html'
     }),
-
+    url(r'^vraspiapp/homemonitor$',views.homemonitor),
     url(r'^vraspiapp/signup/$', views.signup),
     url(r'^vraspiapp/signup_success/$', views.signup_success),
 ]
