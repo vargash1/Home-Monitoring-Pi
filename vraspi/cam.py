@@ -4,7 +4,7 @@
 # @Date:   Saturday, April 9th 2016, 7:59:52 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Saturday, April 9th 2016, 8:08:08 pm
+# @Last modified time: Saturday, April 9th 2016, 8:10:58 pm
 import time
 import picamera
 
@@ -21,6 +21,6 @@ class vRaspiCam:
             camera.close()
 def main():
     camtest = vRaspiCam()
-    camera.takeVid()
+    self.camera.takeVid()
 if __name__ == "__main__":
     main()
