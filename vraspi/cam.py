@@ -4,7 +4,7 @@
 # @Date:   Saturday, April 9th 2016, 7:59:52 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Saturday, April 9th 2016, 8:10:58 pm
+# @Last modified time: Saturday, April 9th 2016, 8:14:57 pm
 import time
 import picamera
 
@@ -14,13 +14,13 @@ class vRaspiCam:
         self.ttl = ttl
     def takeVid(self):
         try:
-            camera.start_preview()
+            self.camera.start_preview()
             time.sleep(self.ttl)
-            camera.stop_preview()
+            self.camera.stop_preview()
         finally:
-            camera.close()
+            self.camera.close()
 def main():
     camtest = vRaspiCam()
-    self.camera.takeVid()
+    camtesttakeVid()
 if __name__ == "__main__":
     main()
