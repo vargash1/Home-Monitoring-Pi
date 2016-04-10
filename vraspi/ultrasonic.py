@@ -4,7 +4,7 @@
 # @Date:   Sunday, April 10th 2016, 6:21:12 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Sunday, April 10th 2016, 6:31:56 pm
+# @Last modified time: Sunday, April 10th 2016, 6:34:52 pm
 import grovepi
 
 class UltraSonicSensor:
@@ -24,7 +24,7 @@ class UltraSonicSensor:
                 pass
 def main():
     test = UltraSonicSensor()
-    test.detect_dist
+    test.detect_dist()
 
 if __name__ == "__main__":
     main()

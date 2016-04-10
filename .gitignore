@@ -2,9 +2,6 @@ Arithmos.egg-info/*
 build/*
 dist/*
 *.pyc
-*.swp
-*.log
-*.aux
-*.tex
 *.pdf
 .env
+*.jpg
