@@ -4,7 +4,7 @@
 # @Date:   Saturday, April 9th 2016, 7:59:52 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Saturday, April 9th 2016, 10:29:52 pm
+# @Last modified time: Sunday, April 10th 2016, 5:16:51 pm
 import time
 import picamera
 
@@ -14,7 +14,8 @@ class vRaspiCam:
         self.camera = picamera.PiCamera()
         self.ttl = ttl
 
-    def takeVid(self):
+    """Takes a vid"""
+    def take_Vid(self):
         try:
             self.camera.start_preview()
             time.sleep(self.ttl)
@@ -22,7 +23,8 @@ class vRaspiCam:
         finally:
             print "kek"
 
-    def takePic(self):
+    """Takes a picture"""
+    def take_Pic(self):
         self.camera.resolution = (2592, 1944)
         self.camera.start_preview()
         # Give the cam some time to adjust to conditions
@@ -36,8 +38,8 @@ class vRaspiCam:
 
 def main():
     camtest = vRaspiCam()
-    camtest.takeVid()
-    camtest.takePic()
+    camtest.take_Vid()
+    camtest.take_Pic()
 
 if __name__ == "__main__":
     main()
