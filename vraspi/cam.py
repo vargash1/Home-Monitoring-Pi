@@ -4,7 +4,7 @@
 # @Date:   Saturday, April 9th 2016, 7:59:52 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Saturday, April 9th 2016, 9:12:22 pm
+# @Last modified time: Saturday, April 9th 2016, 9:13:07 pm
 import time
 import picamera
 
@@ -34,6 +34,9 @@ class vRaspiCam:
             self.camera.capture('foo.jpg')
             self.camera.stop_preview()
             self.camera.close()
+        finally:
+            print "lel"
+
 def main():
     camtest = vRaspiCam()
     camtest.takeVid()
