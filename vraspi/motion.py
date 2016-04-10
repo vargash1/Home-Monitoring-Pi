@@ -4,14 +4,14 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Sunday, April 10th 2016, 5:48:06 pm
+# @Last modified time: Sunday, April 10th 2016, 6:19:58 pm
 import time
 import grovepi
 
 class MotionSensor:
 
     def __init__(self):
-        # Grovepi Sensor
+        # Grovepi Sensor connection
         self.pir_sensor = 8
 
     """ Dectects motion """
@@ -25,7 +25,7 @@ class MotionSensor:
                         mode = 1
                         print "Detection"
                     else:
-                        mode = 0
+                        mode
                         print "--"
                 time.sleep(.5)
             except IOError:
