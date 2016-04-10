@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Sunday, April 10th 2016, 5:18:05 pm
+# @Last modified time: Sunday, April 10th 2016, 5:48:06 pm
 import time
 import grovepi
 
@@ -16,7 +16,7 @@ class MotionSensor:
 
     """ Dectects motion """
     def detect_Motion(self):
-        grovepi.pinMode(pir_sensor, "INPUT")
+        grovepi.pinMode(self.pir_sensor, "INPUT")
         while True:
             try:
                 motion = grovepi.digitalRead(self.pir_sensor)
