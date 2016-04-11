@@ -4,8 +4,9 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:59 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:01:57 am
+# @Last modified time: Monday, April 11th 2016, 2:30:02 am
 import grovepi
+import math
 import time
 import sys
 
@@ -19,9 +20,11 @@ class TempReader:
         while True:
             try:
                 time.sleep(5)
-                [temp,humi] = grovepi.dht(self.temport,self.senseType)
-                print "Temp: {} C\tHumidity:{}".format(temp,humi)
-                sys.stdout.flush()
+                [temp,humi] = grovepi.dht(self.temport, self.senseType)
+                if not (math.isnan(temp) or math.isnan(humi)):
+                    temp = (temp * 9/5) + 32
+                    print "Temp: {} C\tHumidity:{}".format(temp, humi)
+                    sys.stdout.flush()
             except IOError:
                 pass
             except TypeError:
