@@ -4,7 +4,7 @@
 # @Date:   Sunday, April 10th 2016, 6:21:12 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 10:15:14 am
+# @Last modified time: Monday, April 11th 2016, 3:08:13 pm
 from datetime import datetime
 import grovepi
 import time
@@ -12,10 +12,11 @@ import sys
 
 class UltraSonicSensor:
 
-    def __init__(self, queue):
+    def __init__(self, queue logger):
         # Grovepi Digital Port
         self.ranger = 4
         self.msgq = queue
+        self.logger = logger
 
 
     def detect_dist(self):
