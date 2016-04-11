@@ -4,7 +4,8 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:59 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 3:48:36 am
+# @Last modified time: Monday, April 11th 2016, 10:17:39 am
+from datetime import datetime
 import grovepi
 import math
 import time
@@ -25,7 +26,9 @@ class TempReader:
                 [temp,humi] = grovepi.dht(self.temport, self.senseType)
                 if not (math.isnan(temp) or math.isnan(humi)):
                     temp = (temp * 9/5) + 32
-                    print "Temp: {} C\tHumidity:{}".format(temp, humi)
+                    nowt = datetime.now()
+                    self.msgq.put("Temperature: {} F\tHumidity:{}".format(temp, humi))
+                    self.msgq.put("Temperature taken at: {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
                     sys.stdout.flush()
             except IOError:
                 pass

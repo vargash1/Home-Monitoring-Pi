@@ -4,7 +4,8 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 3:49:26 am
+# @Last modified time: Monday, April 11th 2016, 10:20:23 am
+from datetime import datetime
 import grovepi
 import time
 import sys
@@ -28,7 +29,10 @@ class LightSensor:
                     print "Low Light Levels"
                 else:
                     print "High Light Levels"
-                print "sensor val: {} resistance: {}".format(val, resistance)
+                if val < 700:
+                    nowt = datetime.now()
+                    self.msgq.put("Light val: {} resistance: {}".format(val, resistance))
+                    self.msgq.out("Light reading taken at {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
                 sys.stdout.flush()
 
             except IOError:
