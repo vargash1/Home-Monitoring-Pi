@@ -4,14 +4,13 @@
 # @Date:   Sunday, April 10th 2016, 11:18:37 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 4:02:17 am
+# @Last modified time: Monday, April 11th 2016, 4:38:43 am
 import multiprocessing
 from vraspi import ultrasonic, motion, light, temp, noise
-import time
 
 class SensorListener:
-    def __init__(self, queue):
-        self.msgqueue = queue
+    def __init__(self):
+        self.msgqueue = None
         self.ultrasonicProcess = None
         self.motionProcess = None
         self.lightProcess = None
@@ -37,18 +36,18 @@ class SensorListener:
         self.tempProcess.start()
         self.soundProcess.start()
 
-    def getQueueMessages(self):
-        while True:
-            msg = self.msgqueue.get()
-            if msg is not None:
-                print msg
+    def getQueueMessage(self):
+        return self.msgqueue.get()
+
+    def execute(self):
+        self.queue = multiprocessing.Queue()
+        self.initialize()
+        self.runProcesses()
+
 
 def main():
-    queue = multiprocessing.Queue()
-    listener = SensorListener(queue)
-    listener.initialize()
-    listener.runProcesses()
-    listener.getQueueMessages()
+    listener = SensorListener()
+    listener.execute()
 
 if __name__ == "__main__":
     main()
