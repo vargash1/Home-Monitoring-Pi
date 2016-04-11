@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 9:12:29 am
+# @Last modified time: Monday, April 11th 2016, 9:15:47 am
 import time
 import sys
 import grovepi
@@ -27,7 +27,7 @@ class MotionSensor:
                 if motion == 0 or motion == 1:
                     if motion == 1:
                         nowt = datetime.now()
-                        print "Detection"
+                        print "Movement Detected"
                         self.msgq.put("Motion Detected at {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
                     else:
 

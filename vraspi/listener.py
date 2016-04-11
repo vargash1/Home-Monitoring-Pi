@@ -4,7 +4,7 @@
 # @Date:   Sunday, April 10th 2016, 11:18:37 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 4:38:43 am
+# @Last modified time: Monday, April 11th 2016, 9:19:11 am
 import multiprocessing
 from vraspi import ultrasonic, motion, light, temp, noise
 
@@ -48,6 +48,12 @@ class SensorListener:
 def main():
     listener = SensorListener()
     listener.execute()
+    while True:
+        msg  = listener.getQueueMessage()
+        if msg is not None:
+            print msg
+        else:
+            print "No queue messages!"
 
 if __name__ == "__main__":
     main()
