@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Sunday, April 10th 2016, 6:19:58 pm
+# @Last modified time: Sunday, April 10th 2016, 11:36:11 pm
 import time
 import grovepi
 
@@ -17,6 +17,7 @@ class MotionSensor:
     """ Dectects motion """
     def detect_Motion(self):
         grovepi.pinMode(self.pir_sensor, "INPUT")
+        mode = 0
         while True:
             try:
                 motion = grovepi.digitalRead(self.pir_sensor)
@@ -25,9 +26,9 @@ class MotionSensor:
                         mode = 1
                         print "Detection"
                     else:
-                        mode
+                        mode = 0
                         print "--"
-                time.sleep(.5)
+                time.sleep(3)
             except IOError:
                 print "IO err"
                 pass
