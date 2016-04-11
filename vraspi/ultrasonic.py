@@ -4,7 +4,7 @@
 # @Date:   Sunday, April 10th 2016, 6:21:12 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 3:48:48 am
+# @Last modified time: Monday, April 11th 2016, 9:24:09 am
 import grovepi
 import time
 import sys
@@ -22,8 +22,7 @@ class UltraSonicSensor:
             try:
                 dist = grovepi.ultrasonicRead(self.ranger)
                 if dist < 300:
-                    print "movement"
-                    print dist
+                    print "Ultrasonic detecte object dist: {}".format(dist)
                     sys.stdout.flush()
             except TypeError:
                 pass

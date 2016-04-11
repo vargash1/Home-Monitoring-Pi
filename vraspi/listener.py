@@ -4,7 +4,7 @@
 # @Date:   Sunday, April 10th 2016, 11:18:37 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 9:19:11 am
+# @Last modified time: Monday, April 11th 2016, 9:23:15 am
 import multiprocessing
 from vraspi import ultrasonic, motion, light, temp, noise
 
@@ -40,7 +40,7 @@ class SensorListener:
         return self.msgqueue.get()
 
     def execute(self):
-        self.queue = multiprocessing.Queue()
+        self.msgqueue = multiprocessing.Queue()
         self.initialize()
         self.runProcesses()
 
