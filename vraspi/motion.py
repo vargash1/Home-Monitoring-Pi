@@ -4,14 +4,14 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Sunday, April 10th 2016, 11:36:11 pm
+# @Last modified time: Monday, April 11th 2016, 12:12:04 am
 import time
 import grovepi
 
 class MotionSensor:
 
     def __init__(self):
-        # Grovepi Sensor connection
+        # Grovepi Digital Port
         self.pir_sensor = 8
 
     """ Dectects motion """

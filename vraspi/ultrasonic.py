@@ -4,14 +4,14 @@
 # @Date:   Sunday, April 10th 2016, 6:21:12 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Sunday, April 10th 2016, 11:38:32 pm
+# @Last modified time: Monday, April 11th 2016, 12:11:57 am
 import grovepi
 import time
 
 class UltraSonicSensor:
 
     def __init__(self):
-        # Grovepi Sensor Connection
+        # Grovepi Digital Port
         self.ranger = 4
 
     def detect_dist(self):
