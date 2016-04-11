@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 12:48:03 am
+# @Last modified time: Monday, April 11th 2016, 1:05:38 am
 import grovepi
 import time
 import sys
@@ -19,6 +19,7 @@ class LightSensor:
     def detect_light(self):
         while True:
             try:
+                time.sleep(6)
                 val = grovepi.analogRead(self.port)
                 resistance = float(1023 - val) * 10 / val
                 if resistance > self.threshold:
@@ -27,6 +28,6 @@ class LightSensor:
                     print "High Light Levels"
                 print "sensor val: {} resistance: {}".format(val, resistance)
                 sys.stdout.flush()
-                time.sleep(3)
+
             except IOError:
                 pass
