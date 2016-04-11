@@ -1,4 +1,4 @@
-Arithmos.egg-info/*
+vRaspi.egg-info/*
 build/*
 dist/*
 *.pyc
