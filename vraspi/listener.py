@@ -4,9 +4,9 @@
 # @Date:   Sunday, April 10th 2016, 11:18:37 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:36:54 pm
+# @Last modified time: Monday, April 11th 2016, 3:05:54 pm
 import multiprocessing
-from vraspi import ultrasonic, motion, light, temp, noise
+from vraspi import ultrasonic, motion, light, temp, noise, log
 
 class SensorListener:
     def __init__(self, logger):
@@ -47,7 +47,10 @@ class SensorListener:
 
 
 def main():
-    listener = SensorListener()
+    lels = log.VRaspLog()
+    lels.initLogger()
+
+    listener = SensorListener(lels)
     listener.execute()
     while True:
         msg  = listener.getQueueMessage()

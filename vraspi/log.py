@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 1:34:26 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:41:14 pm
+# @Last modified time: Monday, April 11th 2016, 3:04:34 pm
 import logging
 import time
 import sys
@@ -119,8 +119,6 @@ class VRaspLog:
 
 def main():
     test = VRaspLog()
-    kek = test.get_logpath()
     test.initLogger()
-    test.logInfo("kekekek")
 if __name__ == "__main__":
     main()
