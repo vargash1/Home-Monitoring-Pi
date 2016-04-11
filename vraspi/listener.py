@@ -4,25 +4,26 @@
 # @Date:   Sunday, April 10th 2016, 11:18:37 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 9:23:15 am
+# @Last modified time: Monday, April 11th 2016, 2:36:54 pm
 import multiprocessing
 from vraspi import ultrasonic, motion, light, temp, noise
 
 class SensorListener:
-    def __init__(self):
+    def __init__(self, logger):
         self.msgqueue = None
         self.ultrasonicProcess = None
         self.motionProcess = None
         self.lightProcess = None
         self.tempProcess = None
         self.soundProcess = None
+        self.logger = logger
 
     def initialize(self):
-        ultratest = ultrasonic.UltraSonicSensor(self.msgqueue)
-        motiontest = motion.MotionSensor(self.msgqueue)
-        lighttest = light.LightSensor(self.msgqueue)
-        temptest = temp.TempReader(self.msgqueue)
-        soundtest = noise.NoiseSensor(self.msgqueue)
+        ultratest = ultrasonic.UltraSonicSensor(self.msgqueue, self.logger)
+        motiontest = motion.MotionSensor(self.msgqueue, self.logger)
+        lighttest = light.LightSensor(self.msgqueue, self.logger)
+        temptest = temp.TempReader(self.msgqueue, self.logger)
+        soundtest = noise.NoiseSensor(self.msgqueue, self.logger)
         self.motionProcess = multiprocessing.Process(target=motiontest.detect_Motion)
         self.ultrasonicProcess = multiprocessing.Process(target=ultratest.detect_dist)
         self.lightProcess = multiprocessing.Process(target=lighttest.detect_light)

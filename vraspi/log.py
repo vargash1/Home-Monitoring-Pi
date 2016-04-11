@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 1:34:26 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:33:10 pm
+# @Last modified time: Monday, April 11th 2016, 2:41:14 pm
 import logging
 import time
 import sys
@@ -21,6 +21,7 @@ class VRaspLog:
         self.logpath = self.get_logpath()
         self.logfile = None
         self.logger = None
+        self.dt = datetime.now()
 
     def get_logpath(self):
         # /home/user/.vraspi

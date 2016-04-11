@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 10:29:21 am
+# @Last modified time: Monday, April 11th 2016, 2:35:25 pm
 from datetime import datetime
 import grovepi
 import time
@@ -12,11 +12,13 @@ import sys
 
 class LightSensor:
 
-    def __init__(self, queue):
+    def __init__(self, queue, logger):
         # GrovePi Analog Port
         self.port = 1
         self.threshold = 10
         self.msgq = queue
+        self.logger = logger
+
 
 
     def detect_light(self):

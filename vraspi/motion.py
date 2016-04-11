@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 9:15:47 am
+# @Last modified time: Monday, April 11th 2016, 2:40:22 pm
 import time
 import sys
 import grovepi
@@ -12,10 +12,11 @@ from datetime import datetime
 
 class MotionSensor:
 
-    def __init__(self, queue):
+    def __init__(self, queue, logger):
         # Grovepi Digital Port
         self.pir_sensor = 8
         self.msgq = queue
+        self.logger = logger
 
 
     """ Dectects motion """
@@ -24,6 +25,7 @@ class MotionSensor:
         while True:
             try:
                 motion = grovepi.digitalRead(self.pir_sensor)
+                self.logger.logInfo("Motion sensor picked up motion")
                 if motion == 0 or motion == 1:
                     if motion == 1:
                         nowt = datetime.now()
@@ -40,8 +42,9 @@ class MotionSensor:
 
 
 def main():
-    test = MotionSensor(0)
-    test.detect_Motion()
+    # test = MotionSensor(0)
+    # test.detect_Motion()
+    print "EleGiggle"
 
 if __name__ == "__main__":
     main()
