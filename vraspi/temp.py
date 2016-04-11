@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:59 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:30:02 am
+# @Last modified time: Monday, April 11th 2016, 3:48:36 am
 import grovepi
 import math
 import time
@@ -12,9 +12,11 @@ import sys
 
 class TempReader:
 
-    def __init__(self):
+    def __init__(self, queue):
         self.temport = 7
         self.senseType = 0
+        self.msgq = queue
+
 
     def detect_temp(self):
         while True:

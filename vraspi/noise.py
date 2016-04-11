@@ -4,16 +4,17 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:48 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:49:29 am
+# @Last modified time: Monday, April 11th 2016, 3:48:24 am
 import grovepi
 import time
 import sys
 
 class NoiseSensor:
-    def __init__(self):
+    def __init__(self, queue):
         # analog
         self.soundsensor = 0
         self.soundthreshold = 400
+        self.msgq = queue
     def detect_sound(self):
         while True:
             try:

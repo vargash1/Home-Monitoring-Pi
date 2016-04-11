@@ -4,17 +4,19 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 1:05:38 am
+# @Last modified time: Monday, April 11th 2016, 3:49:26 am
 import grovepi
 import time
 import sys
 
 class LightSensor:
 
-    def __init__(self):
+    def __init__(self, queue):
         # GrovePi Analog Port
         self.port = 1
         self.threshold = 10
+        self.msgq = queue
+
 
     def detect_light(self):
         while True:

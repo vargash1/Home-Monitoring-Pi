@@ -4,16 +4,18 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 12:48:38 am
+# @Last modified time: Monday, April 11th 2016, 3:54:54 am
 import time
 import sys
 import grovepi
 
 class MotionSensor:
 
-    def __init__(self):
+    def __init__(self, queue):
         # Grovepi Digital Port
         self.pir_sensor = 8
+        self.msgq = queue
+
 
     """ Dectects motion """
     def detect_Motion(self):
@@ -25,6 +27,7 @@ class MotionSensor:
                 if motion == 0 or motion == 1:
                     if motion == 1:
                         mode = 1
+                        self.msgq.put("Motion Detected")
                         print "Detection"
                     else:
                         mode = 0
