@@ -4,7 +4,7 @@
 # @Date:   Saturday, April 9th 2016, 7:59:52 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 12:09:36 am
+# @Last modified time: Tuesday, April 12th 2016, 5:52:59 am
 import time
 import picamera
 
@@ -26,12 +26,10 @@ class vRaspiCam:
     """Takes a picture"""
     def take_Pic(self):
         self.camera.resolution = (2592, 1944)
-        self.camera.start_preview()
+        time.sleep(2)
         # Give the cam some time to adjust to conditions
         try:
             self.camera.capture('foo.jpg')
-            self.camera.stop_preview()
-            self.camera.close()
         finally:
             print "lel"
 
