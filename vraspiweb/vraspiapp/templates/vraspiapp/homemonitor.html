@@ -3,7 +3,7 @@
 @Date:   Wednesday, March 30th 2016, 6:03:52 am
 @Email:  vargash1@wit.edu
 @Last modified by:   vargash1
-@Last modified time: Tuesday, April 12th 2016, 2:59:44 am
+@Last modified time: Tuesday, April 12th 2016, 3:05:24 am
 -->
 
 {% extends "base.html" %}
@@ -28,17 +28,17 @@
 
         <a href="/vraspiapp" ><p><i class="fa fa-home"></i></p></a>
     </div>
-    {% for key, value in data.items %}
+    {% for element in data %}
         {% if key == "motion" %}
-            <i class="zmdi zmdi-walk"></i> {{value}}<br>
+            <i class="zmdi zmdi-walk"></i> {{element.motion}}<br>
         {% elif key == "temp" %}
-            <i class="zmdi zmdi-nature"></i> {{value}}<br>
+            <i class="zmdi zmdi-nature"></i> {{element.temp}}<br>
         {% elif key == "ultra" %}
-            <i class="zmdi zmdi-input-antenna"></i> {{value}}<br>
+            <i class="zmdi zmdi-input-antenna"></i> {{element.ultra}}<br>
         {% elif key == "light" %}
-            <i class="zmdi zmdi-lamp"></i> {{value}}<br>
+            <i class="zmdi zmdi-lamp"></i> {{element.light}}<br>
         {% elif key == "sound" %}
-            <i class="zmdi zmdi-speaker"></i> {{value}}<br>
+            <i class="zmdi zmdi-speaker"></i> {{element.sound}}<br>
 
         {% endif %}
     {% endfor %}
