@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 4:27:54 am
+# @Last modified time: Tuesday, April 12th 2016, 5:03:46 am
 import time
 import sys
 import grovepi
@@ -35,7 +35,7 @@ class MotionSensor:
                     else:
                         self.logger.logInfo("No Motion {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
 
-                time.sleep(1)
+                time.sleep(3)
             except IOError:
                 print "IO err"
                 pass

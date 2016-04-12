@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 3:38:07 am
+# @Last modified time: Tuesday, April 12th 2016, 5:04:48 am
 from datetime import datetime
 import grovepi
 import time
@@ -24,7 +24,7 @@ class LightSensor:
     def detect_light(self):
         while True:
             try:
-                time.sleep(6)
+                time.sleep(9)
                 val = grovepi.analogRead(self.port)
                 resistance = float(1023 - val) * 10 / val
                 nowt = datetime.now()

@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:48 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 4:46:02 am
+# @Last modified time: Tuesday, April 12th 2016, 5:05:50 am
 from datetime import datetime
 import grovepi
 import time
@@ -20,16 +20,16 @@ class NoiseSensor:
     def detect_sound(self):
         while True:
             try:
-                time.sleep(4)
+                time.sleep(5)
                 soundval = grovepi.analogRead(self.soundsensor)
                 nowt = datetime.now()
                 if soundval > self.soundthreshold:
-                    self.logger.logInfo("Low Sound levels {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
-                else:
                     # weird bug
                     if soundval < 1000:
                         strmsg = "High sound levels detected"
                         self.msgq.put({"sound":strmsg,"time":nowt.strftime('%m-%d-%Y_%H:%M:%S')})
+                else:
+                    self.logger.logInfo("Low Sound levels {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))                    
                 sys.stdout.flush()
             except IOError:
                 pass

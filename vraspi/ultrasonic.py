@@ -4,7 +4,7 @@
 # @Date:   Sunday, April 10th 2016, 6:21:12 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 4:46:22 am
+# @Last modified time: Tuesday, April 12th 2016, 5:06:23 am
 from datetime import datetime
 import grovepi
 import time
@@ -33,7 +33,7 @@ class UltraSonicSensor:
                 pass
             except IOError:
                 pass
-            time.sleep(2)
+            time.sleep(1)
 def main():
     test = UltraSonicSensor()
     test.detect_dist()
