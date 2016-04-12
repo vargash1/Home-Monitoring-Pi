@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:31:39 am
+# @Last modified time: Tuesday, April 12th 2016, 7:33:32 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -78,15 +78,14 @@ def fetch_pic(request):
 
 def homemonitor(request):
     data = []
-    tmp = []
     trigger1 = False
+    trigger2 = False
     for i in range(queue.qsize()):
         msg = listnr.getQueueMessage()
         if msg is not None:
             data.append(msg)
         for elem in msg:
             if elem == "motion":
-                tmp.append()
                 trigger1 = True
             if elem == "ultra":
                 trigger2 = True
