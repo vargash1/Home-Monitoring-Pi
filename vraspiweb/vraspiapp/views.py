@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:29:15 am
+# @Last modified time: Tuesday, April 12th 2016, 7:31:39 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -61,8 +61,9 @@ def signup_success(request):
 def get_data():
     return HttpResponse("lel")
 
-def email_event(tmp):
+def email_event():
     title = "vRaspi Notify"
+    tmp = "Motion sensor AND ultrasonic sensor both triggered. Possible Intruder!"
     send_mail(title,tmp,settings.EMAIL_HOST_USER, ['arithmosbot@gmail.com'],fail_silently=False)
     vlog.logInfo("Send Email!")
 
@@ -85,13 +86,13 @@ def homemonitor(request):
             data.append(msg)
         for elem in msg:
             if elem == "motion":
-                tmp.append(msg)
+                tmp.append()
                 trigger1 = True
             if elem == "ultra":
                 trigger2 = True
 
     if trigger1 and trigger2:
-        email_event(tmp)
+        email_event()
 
     housetemp = listnr.getTempReading()
     return render(request, 'vraspiapp/homemonitor.html', {'data':data,"housetemp":housetemp})
