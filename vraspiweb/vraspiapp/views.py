@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 3:10:52 am
+# @Last modified time: Tuesday, April 12th 2016, 3:16:45 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -62,9 +62,9 @@ def get_data():
 
 def homemonitor(request):
     data = []
-    for i in range(10):
+    for i in range(queue.qsize()):
         msg = listnr.getQueueMessage()
         if msg is not None:
             data.append(msg)
-    print data
+
     return render(request, 'vraspiapp/homemonitor.html', {'data':data})
