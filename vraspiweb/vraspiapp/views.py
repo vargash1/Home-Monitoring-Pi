@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:20:07 am
+# @Last modified time: Tuesday, April 12th 2016, 7:24:47 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -68,7 +68,7 @@ def email_event(tmp):
 
 def fetch_pic(request):
     filepath = tmpcam.take_Pic()
-    with open(filepath,'r') as f:
+    with open(filepath,'rb') as f:
         datain = f.read()
     response = HttpResponse(datain, content_type=mimetypes.guess_type(filepath)[0])
     response['Content-Disposition'] = "attachment; filename={0}".format(filepath)
@@ -84,11 +84,12 @@ def homemonitor(request):
         msg = listnr.getQueueMessage()
         if msg is not None:
             data.append(msg)
-            for elem in msg:
-                if msg == "motion":
-                    trigger1 = True
-                elif msg == "ultra":
-                    trigger2 = True
+        for elem in msg:
+            if msg == "motion":
+                tmp.append(msg)
+                trigger1 = True
+            elif msg == "ultra":
+                trigger2 = True
 
     if trigger1 and trigger2:
         email_event(tmp)
