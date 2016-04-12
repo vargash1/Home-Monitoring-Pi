@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:40:22 pm
+# @Last modified time: Tuesday, April 12th 2016, 2:03:04 am
 import time
 import sys
 import grovepi
@@ -29,11 +29,12 @@ class MotionSensor:
                 if motion == 0 or motion == 1:
                     if motion == 1:
                         nowt = datetime.now()
-                        print "Movement Detected"
-                        self.msgq.put("Motion Detected at {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
+                        strmsg = "Movement Detected {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S'))
+                        self.logger.logInfo(strmsg)
+                        self.msgq.put({'motion':strmsg})
                     else:
+                        self.logger.logInfo("No Motion {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
 
-                        print "--"
                 time.sleep(3)
             except IOError:
                 print "IO err"

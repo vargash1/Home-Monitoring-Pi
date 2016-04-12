@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 2:35:25 pm
+# @Last modified time: Tuesday, April 12th 2016, 2:04:30 am
 from datetime import datetime
 import grovepi
 import time
@@ -27,15 +27,15 @@ class LightSensor:
                 time.sleep(6)
                 val = grovepi.analogRead(self.port)
                 resistance = float(1023 - val) * 10 / val
+                nowt = datetime.now()
                 if resistance > self.threshold:
-                    print "Low Light Levels"
+                    self.logger.logInfo("Low Light Levels {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
+
                 else:
-                    print "High Light Levels"
-                if val < 700:
-                    nowt = datetime.now()
-                    self.msgq.put("Light val: {} resistance: {}".format(val, resistance))
-                    self.msgq.put("Light reading taken at {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
-                sys.stdout.flush()
+                    if val < 700:
+                        strmsg = "High Light Levels {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S'))
+                        self.msgq.put({"light":strmsg})
+                        sys.stdout.flush()
 
             except IOError:
                 pass
