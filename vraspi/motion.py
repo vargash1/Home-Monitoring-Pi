@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 2:03:04 am
+# @Last modified time: Tuesday, April 12th 2016, 2:16:22 am
 import time
 import sys
 import grovepi
@@ -27,8 +27,8 @@ class MotionSensor:
                 motion = grovepi.digitalRead(self.pir_sensor)
                 self.logger.logInfo("Motion sensor picked up motion")
                 if motion == 0 or motion == 1:
+                    nowt = datetime.now()
                     if motion == 1:
-                        nowt = datetime.now()
                         strmsg = "Movement Detected {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S'))
                         self.logger.logInfo(strmsg)
                         self.msgq.put({'motion':strmsg})
