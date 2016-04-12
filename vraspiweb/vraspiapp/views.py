@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 4:46:12 am
+# @Last modified time: Monday, April 11th 2016, 10:59:43 pm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -15,10 +15,18 @@ from django.conf import settings
 from forms import UserForm
 from django.contrib.auth.models import User
 from django.template import Template, Context
+from multiprocessing import Queue
 import mimetypes
+import json
 import os
 import time
-from vraspi import listener
+from vraspi import listener, log
+vlog = log.VRaspLog()
+vlog.initLogger()
+queue = Queue()
+global queue
+listnr = listener.SensorListener(vlog)
+listnr.execute()
 
 def home(request):
     return render(request, "vraspiapp/index.html", {})
@@ -48,9 +56,15 @@ def signup(request):
 def signup_success(request):
     return render(request, 'vraspiapp/signup_success.html')
 
+def get_data():
+    return HttpResponse("lel")
+
+
 def homemonitor(request):
-    listener = SensorListener(queue)
-    listener.execute()
-    while True:
-        time.sleep(1)
-        return render(request,"vraspiapp/homemonitor.html")
+    data = []
+    for i in range(6):
+        msg = listnr.getQueueMessage()
+        if msg is not None:
+            data.append(msg)
+
+    return render(request, 'vraspiapp/homemonitor.html', {'data':data})

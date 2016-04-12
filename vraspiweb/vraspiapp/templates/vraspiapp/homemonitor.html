@@ -1,3 +1,11 @@
+<!--
+@Author: Vargas Hector <vargash1>
+@Date:   Wednesday, March 30th 2016, 6:03:52 am
+@Email:  vargash1@wit.edu
+@Last modified by:   vargash1
+@Last modified time: Monday, April 11th 2016, 10:38:10 pm
+-->
+
 {% extends "base.html" %}
 
 {% block head_title %}vRaspi{% endblock %}
@@ -15,8 +23,11 @@
 {% endblock %}
 {% block content %}
     <br></br>
-    <div class = "usergreeting">
+    <div class = "usergreeting" id="container">
         <p><i class="fa fa-hourglass-end"></i> Coming Soon!... </p>
+
         <a href="/vraspiapp" ><p><i class="fa fa-home"></i></p></a>
     </div>
+    <div id="output_box"></div>
+    <meta http-equiv="refresh" content="5" />
 {% endblock %}

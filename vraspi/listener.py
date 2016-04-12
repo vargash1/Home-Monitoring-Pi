@@ -4,13 +4,13 @@
 # @Date:   Sunday, April 10th 2016, 11:18:37 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 3:05:54 pm
+# @Last modified time: Monday, April 11th 2016, 6:04:24 pm
 import multiprocessing
 from vraspi import ultrasonic, motion, light, temp, noise, log
 
 class SensorListener:
-    def __init__(self, logger):
-        self.msgqueue = None
+    def __init__(self, logger, queue):
+        self.msgqueue = queue
         self.ultrasonicProcess = None
         self.motionProcess = None
         self.lightProcess = None
@@ -41,7 +41,6 @@ class SensorListener:
         return self.msgqueue.get()
 
     def execute(self):
-        self.msgqueue = multiprocessing.Queue()
         self.initialize()
         self.runProcesses()
 
@@ -52,7 +51,7 @@ def main():
 
     listener = SensorListener(lels)
     listener.execute()
-    while True:
+    while listener.getQueueMessage() is not None:
         msg  = listener.getQueueMessage()
         if msg is not None:
             print msg
