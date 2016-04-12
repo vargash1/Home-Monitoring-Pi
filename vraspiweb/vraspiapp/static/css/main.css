@@ -3,7 +3,7 @@
 * @Date:   Wednesday, March 30th 2016, 5:09:05 am
 * @Email:  vargash1@wit.edu
 * @Last modified by:   vargash1
-* @Last modified time: Tuesday, April 12th 2016, 7:01:56 am
+* @Last modified time: Tuesday, April 12th 2016, 7:10:16 am
 */
 
 /*This applies to the whole document, use with caution*/
@@ -33,34 +33,7 @@ table.center {
   text-align: justify;
 
 }
-/*main buttons*/
-.button {
-    background-color: black;
-    border: none;
-    color: white;
-    padding: 10px 26px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 10px;
-    margin: 0px auto;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-}
-.button:focus {
-    outline: none;
-}
-.button:active {
-    transform: translate(0px,5px);
-    -webkit-transform: translate(0px,5px);
-    border-bottom: 0px;
-}
-.button:hover {
-    font-size: 12px;
-    background-color: #1793D1;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
+
 .tab1{
     text-align: center;
     margin: 0 auto;
@@ -91,6 +64,34 @@ a:link {
 }
 a:visited {
     color: black;
+}
+/*main buttons*/
+.button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 26px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 0px auto;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.button:focus {
+    outline: none;
+}
+.button:active {
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 0px;
+}
+.button:hover {
+    font-size: 12px;
+    background-color: #1793D1;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
 .fieldWrapper{
     text-align: justify;
