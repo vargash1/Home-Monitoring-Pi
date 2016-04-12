@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author: Vargas Hector <vargash1>
+# @Date:   Wednesday, March 30th 2016, 4:55:21 am
+# @Email:  vargash1@wit.edu
+# @Last modified by:   vargash1
+# @Last modified time: Tuesday, April 12th 2016, 1:24:15 am
+
 """vraspiweb URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,5 +26,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^vraspiapp/', include('vraspiapp.urls'))
+    url(r'^vraspiapp/', include('vraspiapp.urls')),
+    url(r'^$', include('vraspiapp.urls'))
 ]

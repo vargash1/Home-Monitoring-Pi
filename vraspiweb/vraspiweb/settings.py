@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 4:53:28 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 11:06:24 pm
+# @Last modified time: Tuesday, April 12th 2016, 1:24:32 am
 
 """
 Django settings for vraspiweb project.
@@ -87,10 +87,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME':  'vraspi_db',
-        'USER': 'vargash1',
+        'USER': 'pi',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT':'',
     }
 }
 
