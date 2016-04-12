@@ -3,7 +3,7 @@
 @Date:   Wednesday, March 30th 2016, 6:08:15 am
 @Email:  vargash1@wit.edu
 @Last modified by:   vargash1
-@Last modified time: Tuesday, April 12th 2016, 7:08:16 am
+@Last modified time: Tuesday, April 12th 2016, 7:13:23 am
 -->
 
 {% load staticfiles %}
@@ -57,6 +57,7 @@
             {% if user.is_authenticated %}
                 <li><a href="vraspiapp/logout"><i class="fa fa-sign-out"></i> Sign Out</a></li>
                 <li><a href="vraspiapp/homemonitor"><i class="fa fa-binoculars"></i> Monitor</a></li>
+                <li><a href="vraspiapp/fetch_pic"><i class="zmdi zmdi-camera"></i> Take Picture</a></li>
             {% else %}
                 <li><a href="vraspiapp/login"><i class="fa fa-sign-in"></i> Sign In</a></li>
                 <li><a href="vraspiapp/signup"><i class="fa fa-user"></i> Create Account</a></li>
@@ -75,10 +76,7 @@
 
     {% block greeting%}
     {% endblock %}
-    <div class="divform">
-        <a href="/vraspiapp/fetch_pic>"<button class="button"> <i class="zmdi zmdi-camera"></i> Take Picture </button></a>
-    </div>
-    
+
     <!--  Bottom Bar Fixed -->
     <div class="botbar">
         <a href="https://github.com/vargash1/Home-Monitoring-Pi">

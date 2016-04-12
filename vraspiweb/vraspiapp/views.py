@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:07:23 am
+# @Last modified time: Tuesday, April 12th 2016, 7:14:25 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -83,6 +83,7 @@ def homemonitor(request):
     for i in range(queue.qsize()):
         msg = listnr.getQueueMessage()
         if msg is not None:
+            print msg
             data.append(msg)
         try:
             if msg["motion"] is not None:
