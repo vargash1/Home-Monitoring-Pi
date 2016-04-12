@@ -1,3 +1,11 @@
+/**
+* @Author: Vargas Hector <vargash1>
+* @Date:   Wednesday, March 30th 2016, 5:09:05 am
+* @Email:  vargash1@wit.edu
+* @Last modified by:   vargash1
+* @Last modified time: Tuesday, April 12th 2016, 6:16:41 am
+*/
+
 /*This applies to the whole document, use with caution*/
 img {
     display: block;
@@ -139,4 +147,73 @@ input {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+.navbar-default {
+  background-color: #1793d1;
+  border-color: #e7e7e7;
+}
+.navbar-default .navbar-brand {
+  color: #eff4f6;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #040101;
+}
+.navbar-default .navbar-text {
+  color: #eff4f6;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #eff4f6;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #040101;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #040101;
+  background-color: #e7e7e7;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #040101;
+  background-color: #e7e7e7;
+}
+.navbar-default .navbar-toggle {
+  border-color: #e7e7e7;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #e7e7e7;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #eff4f6;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #eff4f6;
+}
+.navbar-default .navbar-link {
+  color: #eff4f6;
+}
+.navbar-default .navbar-link:hover {
+  color: #040101;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #eff4f6;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #040101;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #040101;
+    background-color: #e7e7e7;
+  }
 }
