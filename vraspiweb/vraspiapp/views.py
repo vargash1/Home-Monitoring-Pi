@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:18:21 am
+# @Last modified time: Tuesday, April 12th 2016, 7:20:07 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -84,10 +84,13 @@ def homemonitor(request):
         msg = listnr.getQueueMessage()
         if msg is not None:
             data.append(msg)
-        for elem in msg:
-            print elem
+            for elem in msg:
+                if msg == "motion":
+                    trigger1 = True
+                elif msg == "ultra":
+                    trigger2 = True
 
-    # if trigger1 and trigger2:
-    #     email_event(tmp)
+    if trigger1 and trigger2:
+        email_event(tmp)
     housetemp = listnr.getTempReading()
     return render(request, 'vraspiapp/homemonitor.html', {'data':data,"housetemp":housetemp})
