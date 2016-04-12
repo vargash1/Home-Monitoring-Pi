@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 10:59:43 pm
+# @Last modified time: Monday, April 11th 2016, 11:09:05 pm
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -25,7 +25,7 @@ vlog = log.VRaspLog()
 vlog.initLogger()
 queue = Queue()
 global queue
-listnr = listener.SensorListener(vlog)
+listnr = listener.SensorListener(vlog, queue)
 listnr.execute()
 
 def home(request):
