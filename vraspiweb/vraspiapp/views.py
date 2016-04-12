@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:14:25 am
+# @Last modified time: Tuesday, April 12th 2016, 7:16:51 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -83,17 +83,17 @@ def homemonitor(request):
     for i in range(queue.qsize()):
         msg = listnr.getQueueMessage()
         if msg is not None:
-            print msg
             data.append(msg)
-        try:
-            if msg["motion"] is not None:
-                trigger1 = True
-                tmp.append(msg)
-            if msg["ultra"] is not None:
-                trigger2 = True
-                tmp.append(msg)
-        except KeyError:
-            pass
+        for elem in msg:
+            try:
+                if elem["motion"] is not None:
+                    trigger1 = True
+                    tmp.append(msg)
+                if elem["ultra"] is not None:
+                    trigger2 = True
+                    tmp.append(msg)
+            except KeyError:
+                pass
 
     if trigger1 and trigger2:
         email_event(tmp)
