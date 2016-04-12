@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:16:51 am
+# @Last modified time: Tuesday, April 12th 2016, 7:18:21 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -85,17 +85,9 @@ def homemonitor(request):
         if msg is not None:
             data.append(msg)
         for elem in msg:
-            try:
-                if elem["motion"] is not None:
-                    trigger1 = True
-                    tmp.append(msg)
-                if elem["ultra"] is not None:
-                    trigger2 = True
-                    tmp.append(msg)
-            except KeyError:
-                pass
+            print elem
 
-    if trigger1 and trigger2:
-        email_event(tmp)
+    # if trigger1 and trigger2:
+    #     email_event(tmp)
     housetemp = listnr.getTempReading()
     return render(request, 'vraspiapp/homemonitor.html', {'data':data,"housetemp":housetemp})
