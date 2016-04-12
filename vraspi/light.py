@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 2:04:30 am
+# @Last modified time: Tuesday, April 12th 2016, 3:38:07 am
 from datetime import datetime
 import grovepi
 import time
@@ -33,8 +33,8 @@ class LightSensor:
 
                 else:
                     if val < 700:
-                        strmsg = "High Light Levels {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S'))
-                        self.msgq.put({"light":strmsg})
+                        strmsg = "High Light Levels"
+                        self.msgq.put({"light":strmsg,"time":nowt.strftime('%m-%d-%Y_%H:%M:%S')})
                         sys.stdout.flush()
 
             except IOError:

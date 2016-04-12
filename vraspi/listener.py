@@ -4,7 +4,7 @@
 # @Date:   Sunday, April 10th 2016, 11:18:37 pm
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Monday, April 11th 2016, 6:04:24 pm
+# @Last modified time: Tuesday, April 12th 2016, 4:31:46 am
 import multiprocessing
 from vraspi import ultrasonic, motion, light, temp, noise, log
 
@@ -22,19 +22,18 @@ class SensorListener:
         ultratest = ultrasonic.UltraSonicSensor(self.msgqueue, self.logger)
         motiontest = motion.MotionSensor(self.msgqueue, self.logger)
         lighttest = light.LightSensor(self.msgqueue, self.logger)
-        temptest = temp.TempReader(self.msgqueue, self.logger)
+        self.tempProcess = temp.TempReader(self.msgqueue, self.logger)
+
         soundtest = noise.NoiseSensor(self.msgqueue, self.logger)
         self.motionProcess = multiprocessing.Process(target=motiontest.detect_Motion)
         self.ultrasonicProcess = multiprocessing.Process(target=ultratest.detect_dist)
         self.lightProcess = multiprocessing.Process(target=lighttest.detect_light)
-        self.tempProcess = multiprocessing.Process(target=temptest.detect_temp)
         self.soundProcess = multiprocessing.Process(target=soundtest.detect_sound)
 
     def runProcesses(self):
         self.ultrasonicProcess.start()
         self.motionProcess.start()
         self.lightProcess.start()
-        self.tempProcess.start()
         self.soundProcess.start()
 
     def getQueueMessage(self):
@@ -44,6 +43,11 @@ class SensorListener:
         self.initialize()
         self.runProcesses()
 
+    """
+    No need to constantly read tempratures!
+    """
+    def getTempReading(self):
+        return self.tempProcess.get_temp()
 
 def main():
     lels = log.VRaspLog()
