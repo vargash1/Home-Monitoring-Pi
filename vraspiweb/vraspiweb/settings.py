@@ -1,3 +1,11 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Author: Vargas Hector <vargash1>
+# @Date:   Wednesday, March 30th 2016, 4:53:28 am
+# @Email:  vargash1@wit.edu
+# @Last modified by:   vargash1
+# @Last modified time: Monday, April 11th 2016, 11:06:24 pm
+
 """
 Django settings for vraspiweb project.
 
@@ -78,7 +86,7 @@ WSGI_APPLICATION = 'vraspiweb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':  'arithmos_db',
+        'NAME':  'vraspi_db',
         'USER': 'vargash1',
         'PASSWORD': '',
         'HOST': 'localhost',
