@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:59 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 4:46:25 am
+# @Last modified time: Tuesday, April 12th 2016, 4:54:09 am
 from datetime import datetime
 import grovepi
 import math
@@ -22,7 +22,7 @@ class TempReader:
 
     def get_temp(self):
         try:
-            [temp,humi] = grovepi.dht(self.temport, self.senseType)
+            temp,humi = grovepi.dht(self.temport, self.senseType)
             if not (math.isnan(temp) or math.isnan(humi)):
                 temp = (temp * 9/5) + 32
                 nowt = datetime.now()
