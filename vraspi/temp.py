@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:59 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 4:54:09 am
+# @Last modified time: Tuesday, April 12th 2016, 5:26:35 am
 from datetime import datetime
 import grovepi
 import math
@@ -23,18 +23,19 @@ class TempReader:
     def get_temp(self):
         try:
             temp,humi = grovepi.dht(self.temport, self.senseType)
-            if not (math.isnan(temp) or math.isnan(humi)):
-                temp = (temp * 9/5) + 32
-                nowt = datetime.now()
-                strmsg = "Temperature: {}F Humidity:{} %".format(temp, humi)
-                self.logger.logInfo("{} {}".format(strmsg,nowt.strftime('%m-%d-%Y_%H:%M:%S')))
-                return ({"temp":strmsg,"time":nowt.strftime('%m-%d-%Y_%H:%M:%S')})
-
-            return self.get_temp()
         except IOError:
             pass
         except TypeError:
-            raise
+            pass
+
+        if not (math.isnan(temp) or math.isnan(humi)):
+            temp = (temp * 9/5) + 32
+            nowt = datetime.now()
+            strmsg = "Temperature: {}F Humidity:{} %".format(temp, humi)
+            self.logger.logInfo("{} {}".format(strmsg,nowt.strftime('%m-%d-%Y_%H:%M:%S')))
+            return ({"temp":strmsg,"time":nowt.strftime('%m-%d-%Y_%H:%M:%S')})
+
+        return self.get_temp()
 
 
     def detect_temp(self):

@@ -4,7 +4,7 @@
 # @Date:   Monday, April 11th 2016, 12:10:05 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 5:04:48 am
+# @Last modified time: Tuesday, April 12th 2016, 5:13:58 am
 from datetime import datetime
 import grovepi
 import time
@@ -38,4 +38,6 @@ class LightSensor:
                         sys.stdout.flush()
 
             except IOError:
+                pass
+            except ZeroDivisionError:
                 pass
