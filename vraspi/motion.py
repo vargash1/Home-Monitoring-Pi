@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 16th 2016, 9:20:36 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 5:03:46 am
+# @Last modified time: Friday, April 15th 2016, 10:14:54 am
 import time
 import sys
 import grovepi
@@ -29,14 +29,14 @@ class MotionSensor:
                 if motion == 0 or motion == 1:
                     nowt = datetime.now()
                     if motion == 1:
-                        strmsg = "Movement Detected"
-                        self.logger.logInfo(strmsg)
-                        self.msgq.put({'motion':strmsg, 'time':nowt.strftime('%m-%d-%Y_%H:%M:%S')})
+                        self.logger.logInfo("Movement Detected")
+                        self.msgq.put({'motion':"Movement Detected", 'time':nowt.strftime('%m-%d-%Y_%H:%M:%S')})
                     else:
                         self.logger.logInfo("No Motion {}".format(nowt.strftime('%m-%d-%Y_%H:%M:%S')))
-
+                # Allow other sensors to read without interference
                 time.sleep(3)
             except IOError:
+                # Don't raise an exception, this would break execution
                 print "IO err"
                 pass
             sys.stdout.flush()

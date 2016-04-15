@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Tuesday, April 12th 2016, 7:33:32 am
+# @Last modified time: Friday, April 15th 2016, 10:13:47 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -20,10 +20,9 @@ import mimetypes
 import json
 import os
 import time
-from vraspi import listener, log, cam
+from vraspi import listener, log
 vlog = log.VRaspLog()
 vlog.initLogger()
-tmpcam = cam.vRaspiCam()
 
 queue = Queue()
 global queue
@@ -67,14 +66,14 @@ def email_event():
     send_mail(title,tmp,settings.EMAIL_HOST_USER, ['arithmosbot@gmail.com'],fail_silently=False)
     vlog.logInfo("Send Email!")
 
-def fetch_pic(request):
-    filepath = tmpcam.take_Pic()
-    with open(filepath,'rb') as f:
-        datain = f.read()
-    response = HttpResponse(datain, content_type=mimetypes.guess_type(filepath)[0])
-    response['Content-Disposition'] = "attachment; filename={0}".format(filepath)
-    response['Content-Length'] = os.path.getsize(filepath)
-    return response
+# def fetch_pic(request):
+#     filepath = tmpcam.take_Pic()
+#     with open(filepath,'rb') as f:
+#         datain = f.read()
+#     response = HttpResponse(datain, content_type=mimetypes.guess_type(filepath)[0])
+#     response['Content-Disposition'] = "attachment; filename={0}".format(filepath)
+#     response['Content-Length'] = os.path.getsize(filepath)
+#     return response
 
 def homemonitor(request):
     data = []
