@@ -4,7 +4,7 @@
 # @Date:   Wednesday, March 30th 2016, 6:13:47 am
 # @Email:  vargash1@wit.edu
 # @Last modified by:   vargash1
-# @Last modified time: Friday, April 15th 2016, 10:13:47 am
+# @Last modified time: Friday, April 15th 2016, 10:45:30 am
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -80,6 +80,7 @@ def homemonitor(request):
     trigger1 = False
     trigger2 = False
     for i in range(queue.qsize()):
+        # As we read messages, they will be popped off
         msg = listnr.getQueueMessage()
         if msg is not None:
             data.append(msg)
@@ -88,7 +89,8 @@ def homemonitor(request):
                 trigger1 = True
             if elem == "ultra":
                 trigger2 = True
-
+    # Only upon Motion sensor and Ultrasonic sensor triggering
+    # Send an email
     if trigger1 and trigger2:
         email_event()
 
